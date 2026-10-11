@@ -1,3 +1,4 @@
+package partA;
 // The Incorrect Variable is: z = 24;
 // The variable z is being used without being declared first. 
 // Java requires variables to have a declared type before they can be used. 

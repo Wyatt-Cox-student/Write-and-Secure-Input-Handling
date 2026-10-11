@@ -1,0 +1,70 @@
+<!--
+ The Incorrect Regex Expressions are:
+ [0-9]{4} — Requires four digits instead of three.
+ \d{3} — Correctly checks for three digits.
+ \D{4} — Requires four non-digit characters instead of four numbers.
+
+ The first input requires the wrong number of digits, and the third input uses an uppercase D, 
+ which matches non-numeric characters. The second input is already correct. 
+ The HTML also doesn't mark the inputs as required, 
+ so the user could leave them empty without triggering the pattern validation.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    input:invalid {
+        border: red solid 3px;
+    }
+</style>
+</head>
+
+<body>
+<p>
+    <label>
+        Enter your phone number in the format 123-456-7890
+
+        <input
+            name="tel1"
+            type="tel"
+            pattern="[0-9]{3}"
+            placeholder="###"
+            aria-label="3-digit area code"
+            size="3"
+            required
+        />
+
+        -
+
+        <input
+            name="tel2"
+            type="tel"
+            pattern="[0-9]{3}"
+            placeholder="###"
+            aria-label="3-digit prefix"
+            size="3"
+            required
+        />
+
+        -
+
+        <input
+            name="tel3"
+            type="tel"
+            pattern="[0-9]{4}"
+            placeholder="####"
+            aria-label="4-digit number"
+            size="4"
+            required
+        />
+    </label>
+</p>
+</body>
+</html>
+<!--
+ Each input now requires the correct number of digits. 
+ The first two inputs accept three digits, and the last accepts four. 
+ Adding required also prevents the fields from being left empty without failing validation. 
+ These checks improve the form's accuracy, 
+ although server-side validation would still be needed when submitting the information.
+-->
